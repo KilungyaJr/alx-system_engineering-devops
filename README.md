@@ -1,1 +1,1 @@
-working with shell redirections
+Getting started with shell: basics, permissions, I/O redirections
