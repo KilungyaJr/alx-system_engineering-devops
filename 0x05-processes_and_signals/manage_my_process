@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# displays I am alive! indefinitely
+# in between each iteration of the loop, program pauses for two seconds
+while true ; do
+    sudo bash -c 'echo "I am alive!" >> /tmp/my_process'
+    sleep 2
+done
