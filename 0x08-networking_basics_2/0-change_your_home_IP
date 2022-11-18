@@ -4,7 +4,6 @@
 # facebook.com resolves to 8.8.8.8
 # running on Docker
 
-cp /etc/hosts ~/hosts.new
-sed -i s^127.*localhost$/127.0.0.2\ localhost/ ~/hosts.new
-echo "8.8.8.8 facebook.com" >> ~/hosts.new
-cat ~/hosts.new > /etc/hosts
+cp /etc/hosts hosts_new
+sed -i s/127.*$/127.0.0.2\\tlocalhost\\n8.8.8.8\\tfacebook.com/g hosts_new
+cp -f hosts_new /etc/hosts
