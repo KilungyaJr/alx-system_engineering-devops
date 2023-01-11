@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# SSH client configuration
+
+Host 54.84.2.1
+  Hostname 86389-web-01
+  User ubuntu
+  IdentityFile ~/.ssh/school
+  PubkeyAuthentication yes
+  PasswordAuthentication no
+  ChallengeResponseAuthentication no
