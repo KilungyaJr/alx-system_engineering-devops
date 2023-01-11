@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# uses ssh to connect to a server using the private key
 # Set the path to the private key
 KEY=~/.ssh/school
 
