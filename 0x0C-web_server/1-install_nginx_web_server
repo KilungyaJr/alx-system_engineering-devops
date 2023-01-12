@@ -28,5 +28,8 @@ echo "server {
 }" > /etc/nginx/sites-available/custom
 ln -s /etc/nginx/sites-available/custom /etc/nginx/sites-enabled/custom
 
+# Create index.html file
+echo "Hello World!" > /var/www/html/index.html
+
 # Restart Nginx without systemctl
 killall -s HUP nginx
