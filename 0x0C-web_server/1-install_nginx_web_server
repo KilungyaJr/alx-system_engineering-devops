@@ -6,29 +6,8 @@
 # using curl, it must return a page that contains the string Hello World!
 # You can’t use systemctl for restarting nginx
 
-# Update package list and upgrade all packages
-apt-get update
-apt-get -y upgrade
-
-# Install Nginx
-apt-get -y install nginx
-
-# Remove default Nginx configuration
-rm /etc/nginx/sites-enabled/default
-
-# Create a new Nginx configuration
-echo "server {
-    listen 80;
-    root /var/www/html;
-    index index.html;
-    server_name _;
-    location / {
-    }
-}" > /etc/nginx/sites-available/custom
-ln -s /etc/nginx/sites-available/custom /etc/nginx/sites-enabled/custom
-
-# Create index.html file
-echo "Hello World!" > /var/www/html/index.html
-
-# Restart Nginx without systemctl
-killall -s HUP nginx
+sudo apt-get update
+sudo apt-get install -y nginx
+echo "Hello World!" > index.html
+sudo mv index.html  /var/www/html
+sudo service nginx restart
