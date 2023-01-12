@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#  transfers a file from our client to a server
+
+# Check if the correct number of parameters have been passed
+if [[ $# -lt 4 ]]; then
+  echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+  exit 1
+fi
+
+# Assign variables for the parameters
+PATH_TO_FILE=$1
+IP=$2
+USERNAME=$3
+PATH_TO_SSH_KEY=$4
+
+# Transfer the file using SCP with strict host key checking disabled
+scp -o "StrictHostKeyChecking no" -i $PATH_TO_SSH_KEY $PATH_TO_FILE $USERNAME@$IP:~/
