@@ -7,11 +7,11 @@
 # You can’t use systemctl for restarting nginx
 
 # Update package list and upgrade all packages
-apt-get update
-apt-get -y upgrade
+sudo apt-get update
+sudo apt-get -y upgrade
 
 # Install Nginx
-apt-get -y install nginx
+sudo apt-get -y install nginx
 
 # Remove default Nginx configuration
 rm /etc/nginx/sites-enabled/default
