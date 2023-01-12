@@ -11,8 +11,8 @@ link="https://www.youtube.com/watch?v=QH2-TGUlwu4"
 new_conf="server_name _;\n\trewrite ^/redirect_me/$ $link permanent;"
 
 sudo apt-get update
-sudo apt-get install -y nginx
-echo "Hello World!" > index.html
-sudo mv index.html  /var/www/html
+sudo apt install -y nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" > /var/www/html/index.html
 sudo sed -i "s|server_name\ _;|$new_conf|" /etc/nginx/sites-available/default
 sudo service nginx restart
