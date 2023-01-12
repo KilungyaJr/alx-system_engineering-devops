@@ -10,6 +10,4 @@ sudo apt-get update
 sudo apt-get install -y nginx
 echo "Hello World!" > index.html
 sudo mv index.html  /var/www/html
-
-# Restart Nginx without systemctl
-killall -s HUP nginx
+sudo service nginx restart
