@@ -7,12 +7,12 @@
 # write 3-redirection so that it configures a brand new Ubuntu machine
 # to the requirements asked in this task
 
-sudo link="https://www.youtube.com/watch?v=QH2-TGUlwu4"
-sudo new_conf="server_name _;\n\trewrite ^/redirect_me/$ $link permanent;"
+link="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+new_conf="server_name _;\n\trewrite ^/redirect_me/$ $link permanent;"
 
 sudo apt-get update
 sudo apt-get install -y nginx
-sudo echo "Hello World!" > index.html
+echo "Hello World!" > index.html
 sudo mv index.html  /var/www/html
 sudo sed -i "s|server_name\ _;|$new_conf|" /etc/nginx/sites-available/default
 sudo service nginx restart
