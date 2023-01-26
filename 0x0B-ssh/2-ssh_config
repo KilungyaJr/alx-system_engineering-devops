@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SSH client configuration
 
-Host 52.91.121.190
+Host 100.26.235.136
   Hostname 86389-web-01
   User ubuntu
   IdentityFile ~/.ssh/school
