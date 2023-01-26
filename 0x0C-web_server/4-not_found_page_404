@@ -5,17 +5,25 @@
 # Using what you did with 3-redirection, write 4-not_found_page_404 so that
 #it configures a brand new Ubuntu machine to the requirements asked in this task
 
-link="https://www.youtube.com/watch?v=QH2-TGUlwu4"
-new_conf="server_name _;\n\trewrite ^/redirect_me/$ $link permanent;"
-location_error="location = /404.html {\n\t\troot /var/www/html/;\n\t\tinternal;\n"
-error_directive="error_page 404 /404.html;\n\t$location_error"
-error_404="}\n\n\t$error_directive\t}"
-
 sudo apt-get update
 sudo apt install -y nginx
-sudo ufw allow 'Nginx HTTP'
-echo "Hello World!" > /var/www/html/index.html
-echo "Ceci n'est pas une page" > /var/www/html/404.html
-sudo sed -i "s|server_name\ _;|$new_conf|" /etc/nginx/sites-available/default
-sudo sed -i "0,/}/ s|}|$error_404|" /etc/nginx/sites-available/default
+
+echo "Hello World!" > index.html
+sudo mv index.html /var/www/html
+echo "Ceci n'est pas une page" > 404.html
+sudo mv 404.html /var/www/html
+printf %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html;
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+    error_page 404 /404.html;
+    location = /404.html{
+        internal;
+    }
+}" > default
+sudo mv -f default /etc/nginx/sites-available/default
 sudo service nginx restart
