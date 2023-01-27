@@ -1,18 +1,26 @@
 #!/usr/bin/env bash
-# displays information about the subdomains
-
-dns_config () {
-    script=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
-    echo "$2 $script" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
+# Domain info fetcher
+# Fetches information about an array of subdomains
+fetch_subdomains() {
+	domain="$1"
+	subdomains=()
+	readarray -t subdomains < <(echo "$2" | tr ' ' '\n')
+	for ((i = 0; i < "${#subdomains[@]}"; i++)) do
+		subdomain="${subdomains[i]}"
+		output_awk='{print "The subdomain", "'
+		output_awk="$output_awk$subdomain is a"
+		output_awk="$output_awk\", \$7, \"record and points to\", \$8}"
+		dig "$subdomain.$domain" \
+			| grep -A1 'ANSWER SECTION:' \
+			| tr '\n' ' ' \
+			| awk "$output_awk"
+	done
 }
 
-if [ "$#" == 1 ]
-then
-  dns_config "$1" "www"
-  dns_config "$1" "lb-01"
-  dns_config "$1" "web-01"
-  dns_config "$1" "web-02"
-elif [ "$#" == 2 ]
-then
-  dns_config "$1" "$2"
+if [ "${#BASH_ARGV[@]}" -ge '2' ]; then
+	fetch_subdomains "$1" "$2"
+elif [ "${#BASH_ARGV[@]}" -ge '1' ]; then
+	fetch_subdomains "$1" "www lb-01 web-01 web-02"
+else
+	exit
 fi
