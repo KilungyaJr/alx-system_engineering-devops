@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Check if an argument was provided
+if [ $# -eq 0 ]; then
+    echo "Error: No argument provided."
+    echo "Usage: $0 <user>"
+    exit 1
+fi
+
+# Run the whoami command under the specified user
+sudo -u "$1" whoami
