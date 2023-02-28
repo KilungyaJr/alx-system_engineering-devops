@@ -7,20 +7,24 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    """
-    Returns the number of subscribers (not active users, total subscribers)
+    """Returns the total number of subscribers
     for a given subreddit.
-    If an invalid subreddit is given, the function returns 0.
     """
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {'User-Agent': 'Python/requests'}
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        data = response.json()
-        return data['data']['subscribers']
-    elif response.status_code == 302:
+    # Set the Default URL strings
+    base_url = 'https://www.reddit.com'
+    api_uri = '{base}/r/{subreddit}/about.json'.format(base=base_url,
+                                                       subreddit=subreddit)
+
+    # Set an User-Agent
+    user_agent = {'User-Agent': 'Python/requests'}
+
+    # Get the Response of the Reddit API
+    res = requests.get(api_uri, headers=user_agent,
+                       allow_redirects=False)
+
+    # Checks if the subreddit is invalid
+    if res.status_code in [302, 404]:
         return 0
-    elif response.status_code == 404:
-        return 0
-    else:
-        return 0
+
+    # Returns the total subscribers of the subreddit
+    return res.json().get('data').get('subscribers')
