@@ -1,4 +1,4 @@
-DDoS Attack: Summary
+DDoS Attack: Postmortem Summary
 
 Duration: January 15, 2023, 12:00 PM - January 16, 2023, 8:00 AM (CST)
 Impact: A video conferencing application was slow and unstable, affecting 90% of users.
