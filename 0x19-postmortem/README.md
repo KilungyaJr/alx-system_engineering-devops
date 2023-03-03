@@ -5,6 +5,10 @@
 
 **Root Cause:** A third-party service provider experienced a DDoS attack, causing a delay in response times.
 
+From a high level, a DDoS attack is like an unexpected traffic jam clogging up the highway, preventing regular traffic from arriving at its destination.
+
+![ddos_attack_traffic_metaphor](images/ddos_attack_traffic_metaphor.png)
+
 **Timeline:**
 
 - January 15, 2023, 12:00 PM - Users began experiencing slow and unstable connections.
@@ -39,3 +43,6 @@ The root cause of the issue was a DDoS attack on a third-party service provider,
 - Increase monitoring: The operations team will increase monitoring of the system to detect any potential issues before they cause an outage.
 
 - Update the incident response plan: The operations team will update the incident response plan to include procedures for dealing with issues related to third-party service providers.
+
+
+In the end, we were able to restore our website to normal operation. We'd like to thank our team for their quick and effective response, and our users for their patience and understanding during the downtime. **As they say, "When life gives you DDoS attacks, make lemonade... or something like that!" Moving forward, we'll be sure to have a few more tricks up our sleeves to ensure uninterrupted services.**
