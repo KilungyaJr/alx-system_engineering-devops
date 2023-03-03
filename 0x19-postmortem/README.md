@@ -7,14 +7,14 @@
 
 **Timeline:**
 
-January 15, 2023, 12:00 PM - Users began experiencing slow and unstable connections.
-January 15, 2023, 12:15 PM - The operations team received several customer complaints about the service being slow and unstable.
-January 15, 2023, 12:30 PM - The operations team discovered that the application was experiencing high network latency.
-January 15, 2023, 1:00 PM - The operations team started investigating the issue and checked the application logs for any errors.
-January 15, 2023, 2:00 PM - The operations team found that the issue was related to a third-party service provider and reached out to their support team.
-January 15, 2023, 3:00 PM - The third-party service provider confirmed that they were experiencing a DDoS attack that was affecting their response times.
-January 15, 2023, 4:00 PM - The operations team informed users of the issue and provided regular updates on the progress of the resolution.
-January 16, 2023, 8:00 AM - The third-party service provider mitigated the DDoS attack, and the video conferencing application returned to normal.
+- January 15, 2023, 12:00 PM - Users began experiencing slow and unstable connections.
+- January 15, 2023, 12:15 PM - The operations team received several customer complaints about the service being slow and unstable.
+- January 15, 2023, 12:30 PM - The operations team discovered that the application was experiencing high network latency.
+- January 15, 2023, 1:00 PM - The operations team started investigating the issue and checked the application logs for any errors.
+- January 15, 2023, 2:00 PM - The operations team found that the issue was related to a third-party service provider and reached out to their support team.
+- January 15, 2023, 3:00 PM - The third-party service provider confirmed that they were experiencing a DDoS attack that was affecting their response times.
+- January 15, 2023, 4:00 PM - The operations team informed users of the issue and provided regular updates on the progress of the resolution.
+- January 16, 2023, 8:00 AM - The third-party service provider mitigated the DDoS attack, and the video conferencing application returned to normal.
 
 **Root Cause and Resolution:**
 
